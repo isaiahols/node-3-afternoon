@@ -6,7 +6,7 @@ module.exports = {
         const { username, password } = req.body;
         const { session } = req;
 
-        const user = users.find((oneUser) =>  oneUser.username === username && oneUser.password === password )
+        const user = users.find((oneUser) => oneUser.username === username && oneUser.password === password)
         if (user) {
             session.user.username = user.username;
             res.status(200).send(session.user)
@@ -34,7 +34,7 @@ module.exports = {
 
         session.destroy();
 
-        res.status(200).send(session);
+        res.status(200).send(req.session);
     },
 
     getUser: (req, res, next) => {
